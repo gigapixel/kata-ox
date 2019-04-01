@@ -1,13 +1,48 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 
-import { alwaysReturn1 } from '../src/example';
+import { calculate } from '../src/example';
 
 describe('example.js', () => {
-  describe('alwaysReturn1()', () => {
-    it('should return 1', () => {
-      let result = alwaysReturn1();
-      expect(result).equal(1);
+  describe('calculate()', () => {
+    it('should Draw', () => {
+      let input = [
+        ['x', 'x', 'o'],
+        ['o', 'o', 'x'],
+        ['x', 'x', 'o']
+      ];
+      let result = calculate(input);
+      expect(result).equal('Draw');
+    });
+
+    it('should x win', () => {
+      let input = [
+        ['x', 'x', 'x'],
+        ['o', 'o', 'x'],
+        ['x', 'x', 'o']
+      ];
+      let result = calculate(input);
+      expect(result).equal('x win');
+    });
+
+    it('should x win', () => {
+      let input = [
+        ['x', 'x', 'o'],
+        ['x', 'o', 'x'],
+        ['x', 'x', 'o']
+      ];
+      let result = calculate(input);
+      expect(result).equal('x win');
+    });
+
+    it('should x win', () => {
+      let input = [
+        ['x', 'x', 'o'],
+        ['x', '', 'o'],
+        ['o', 'x', 'x']
+      ];
+      let result = calculate(input);
+      expect(result).equal('x win');
     });
   });
 });
