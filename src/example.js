@@ -12,11 +12,11 @@
 
 // console.log(findWin(arr));
 
- function findWin(arr) {
+ export function findWin(arr) {
 
   let isIngame = false;
 
-  for (i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     if ((arr[i][0] === arr[i][1] && arr[i][0] === arr[i][2])) {
       return arr[i][0] + ' Win';
     }
@@ -25,7 +25,7 @@
       return arr[0][i] + ' Win';
     }
 
-    for(j = 0 ; j < 3 ; j++) {
+    for(let j = 0 ; j < 3 ; j++) {
       if(arr[i][j] === ' ')
       isIngame = true;
     }

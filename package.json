@@ -30,6 +30,7 @@
   "scripts": {
     "node": "node_modules/.bin/babel-node",
     "test": "nyc mocha --require @babel/register --require @babel/polyfill --recursive",
-    "report": "nyc report --reporter=html"
+    "report": "nyc report --reporter=html",
+    "start": "babel-node src/example.js"
   }
 }
