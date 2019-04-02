@@ -157,7 +157,7 @@ describe('ox.js', () => {
       expect(result).equal('Winner: X');
     });
 
-    it('X /', () => {
+    it('X \\', () => {
       const ox = new OX();
       let result = ox.playOX([
         ['X', 'O', 'O'],
@@ -168,7 +168,7 @@ describe('ox.js', () => {
       expect(result).equal('Winner: X');
     });
 
-    it('X \\', () => {
+    it('X /', () => {
       const ox = new OX();
       let result = ox.playOX([
         ['O', 'O', 'X'],
@@ -199,6 +199,17 @@ describe('ox.js', () => {
       ])
 
       expect(result).equal('Draw');
+    });
+
+    it('In Game (all blank)', () => {
+      const ox = new OX();
+      let result = ox.playOX([
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+      ])
+
+      expect(result).equal('In Game');
     });
   });
 });
