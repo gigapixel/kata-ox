@@ -4,20 +4,25 @@
 //   ['O', 'X', 'O']
 // ];
 
-let arr = [
-  ['X', 'X', 'O'],
-  ['O', 'X', 'X'],
-  ['X', 'O', 'O']
-];
+// let arr = [
+//   ['X', 'X', 'O'],
+//   ['O', 'X', 'X'],
+//   ['X', 'X', 'O']
+// ];
 
+// console.log(findWin(arr));
 
  function findWin(arr) {
 
   let isIngame = false;
 
   for (i = 0; i < 3; i++) {
-    if ((arr[i][0] === arr[i][1] && arr[i][0] === arr[i][2]) || (arr[0][i] === arr[1][i] && arr[0][i] === arr[2][i])) {
+    if ((arr[i][0] === arr[i][1] && arr[i][0] === arr[i][2])) {
       return arr[i][0] + ' Win';
+    }
+
+    if ((arr[0][i] === arr[1][i] && arr[0][i] === arr[2][i])) {
+      return arr[0][i] + ' Win';
     }
 
     for(j = 0 ; j < 3 ; j++) {
