@@ -7,17 +7,7 @@ export function main(input) {
   checkData(input,'Horizontal');
   if(print === 'in game'){
     checkData(dataVertical,'Vertical');
-    // if((input[0][0] === 'o' && input[1][1] === 'o' && input[2][2] === 'o') || (input[0][2] === 'o' && input[1][1] === 'o' && input[2][0] === 'o')){
-    //   print = 'O WIN'
-    // }
-    // if((input[0][0] === 'x' && input[1][1] === 'x' && input[2][2] === 'x') || (input[0][2] === 'x' && input[1][1] === 'x' && input[2][0] === 'x')){
-    //   print = 'X WIN'
-    // }
-
-    if((input[0][0] === input[1][1] && input[2][2] === input[1][1]) || (input[0][2] === input[1][1] && input[2][0] === input[1][1])){
-      print = `${input[1][1]} WIN`
-    }
-    
+    print = ((input[0][0] === input[1][1] && input[2][2] === input[1][1]) && input[1][1] !== "" ) || ((input[0][2] === input[1][1] && input[2][0] === input[1][1])&& input[1][1] !== "" ) ? `${input[1][1]} WIN` : 'in game'
   }
   return print;
 }
@@ -35,7 +25,7 @@ function checkData(input,task){
 }
 
 console.log(main([
-  ["O", "O", "O"],
-  ["X", "X", "O"],
-  ["O", "O", "O"]
+  ["", "O", "O"],
+  ["X", "", "X"],
+  ["O", "O", ""]
 ]));
