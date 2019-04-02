@@ -16,9 +16,9 @@ describe('example.js', () => {
 
     it('should return In Game', () => {
       let result = findWin([
-        ['X', 'X', 'O'],
-        ['O', 'X', 'X'],
-        ['X', 'O', ' ']
+        [' ', ' ', ' '],
+        [' ', ' ', ' '],
+        [' ', ' ', ' ']
       ]);
       expect(result).equal('In Game');
     });
