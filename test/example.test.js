@@ -37,9 +37,9 @@ describe('example.js', () => {
 
     it('should return O WIN vertical 3', () => {
       const input = [
-        ["X", "O", "X"],
         ["X", "X", "O"],
-        ["O", "O", "O"]
+        ["X", "O", "X"],
+        ["O", "O", "O"],
       ];
       let result = main(input);
       expect(result).equal('O WIN');
@@ -89,7 +89,8 @@ describe('example.js', () => {
     it('should return O WIN horizontal 3', () => {
       const input = [
         ["X", "O", "O"],
-        ["O", "X", "O"]
+        ["O", "X", "O"],
+        ["X", "X", "O"]
       ];
       let result = main(input);
       expect(result).equal('O WIN');
