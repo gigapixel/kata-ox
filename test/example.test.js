@@ -178,9 +178,9 @@ describe('example.js', () => {
 
     it('should in game', () => {
       let input = [
-        ['', 'x', 'o'],
-        ['x', 'o', ''],
-        ['o', 'o', 'x']
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
       ];
       let result = calculate(input);
       expect(result).equal('in game');
