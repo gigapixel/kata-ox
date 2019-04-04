@@ -4,6 +4,11 @@ export function calculate(input) {
 
   let result = check(input);
 
+  // let val1 = _.uniq([input[0][0], input[1][1], input[2][2]]);
+  // result = val1.length === 1 ? input[0][0] + ' win' : result;
+
+  // let val2 = _.uniq([input[0][2], input[1][1], input[2][0]]);
+  // result = val2.length === 1 ? input[0][2] + ' win' : result;
   result = !((input[0][0] !== input[1][1]) || (input[1][1] !== input[2][2])) ? input[0][0] + ' win' : result;
   result = !((input[0][2] !== input[1][1]) || (input[1][1] !== input[2][0])) ? input[0][2] + ' win' : result;
 
