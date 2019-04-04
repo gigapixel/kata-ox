@@ -5,6 +5,27 @@ import { OX } from '../src/ox';
 
 describe('ox.js', () => {
   describe('alwaysReturn1()', () => {
+    it('Check O valid input', () => {
+      const ox = new OX();
+      let result = ox.playOX([
+        ['O', 'O', 'O'],
+        ['X', 'O', ' '],
+        [' ', ' ', ' '],
+      ]);
+      expect(result).equal('Invalid Input');
+    });
+
+    it('Check X valid input', () => {
+      const ox = new OX();
+      let result = ox.playOX([
+        ['X', 'X', 'X'],
+        ['O', ' ', ' '],
+        [' ', ' ', ' '],
+      ]);
+      expect(result).equal('Invalid Input');
+    });
+
+
     it('O row 1', () => {
       const ox = new OX();
       let result = ox.playOX([
@@ -18,9 +39,9 @@ describe('ox.js', () => {
     it('O row 2', () => {
       const ox = new OX();
       let result = ox.playOX([
-        ['x', 'x', 'O'],
+        ['X', 'X', 'O'],
         ['O', 'O', 'O'],
-        ['x', ' ', ' '],
+        ['X', ' ', ' '],
       ])
 
       expect(result).equal('Winner: O');
@@ -29,8 +50,8 @@ describe('ox.js', () => {
     it('O row 3', () => {
       const ox = new OX();
       let result = ox.playOX([
-        ['x', 'x', ' '],
-        ['O', 'x', 'X'],
+        ['X', 'X', ' '],
+        ['O', 'X', 'X'],
         ['O', 'O', 'O'],
       ])
 
@@ -40,8 +61,8 @@ describe('ox.js', () => {
     it('O col 1', () => {
       const ox = new OX();
       let result = ox.playOX([
-        ['O', 'x', ' '],
-        ['O', 'x', 'X'],
+        ['O', 'X', ' '],
+        ['O', 'X', 'X'],
         ['O', 'O', 'X'],
       ])
 
@@ -105,7 +126,7 @@ describe('ox.js', () => {
     it('X row 2', () => {
       const ox = new OX();
       let result = ox.playOX([
-        ['x', 'O', 'O'],
+        ['X', 'O', 'O'],
         ['X', 'X', 'X'],
         ['O', 'O', ' '],
       ])
@@ -127,9 +148,9 @@ describe('ox.js', () => {
     it('X col 1', () => {
       const ox = new OX();
       let result = ox.playOX([
-        ['X', 'O', ''],
+        ['O', 'O', ''],
         ['X', 'X', 'X'],
-        ['X', 'O', 'X'],
+        ['X', 'O', 'O'],
       ])
 
       expect(result).equal('Winner: X');
@@ -206,6 +227,17 @@ describe('ox.js', () => {
       let result = ox.playOX([
         [' ', ' ', ' '],
         [' ', ' ', ' '],
+        [' ', ' ', ' '],
+      ])
+
+      expect(result).equal('In Game');
+    });
+
+    it('Test Winner > 1)', () => {
+      const ox = new OX();
+      let result = ox.playOX([
+        ['X', 'X', 'X'],
+        ['O', 'O', 'O'],
         [' ', ' ', ' '],
       ])
 
