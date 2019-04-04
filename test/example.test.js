@@ -99,7 +99,7 @@ describe('example.js', () => {
     it('should o win row 1', () => {
       let input = [
         ['o', 'o', 'o'],
-        ['o', 'o', 'x'],
+        ['o', 'x', 'x'],
         ['x', 'x', 'o']
       ];
       let result = calculate(input);
@@ -108,7 +108,7 @@ describe('example.js', () => {
 
     it('should o win row 2', () => {
       let input = [
-        ['x', 'o', 'o'],
+        ['x', 'o', 'x'],
         ['o', 'o', 'o'],
         ['o', 'x', 'x']
       ];
@@ -119,7 +119,7 @@ describe('example.js', () => {
     it('should o win row 3', () => {
       let input = [
         ['x', 'o', 'x'],
-        ['o', 'x', 'o'],
+        ['x', 'x', 'o'],
         ['o', 'o', 'o']
       ];
       let result = calculate(input);
@@ -128,7 +128,7 @@ describe('example.js', () => {
 
     it('should o win cell 1', () => {
       let input = [
-        ['o', 'x', 'o'],
+        ['o', 'x', 'x'],
         ['o', 'x', 'o'],
         ['o', 'o', 'x']
       ];
@@ -184,6 +184,26 @@ describe('example.js', () => {
       ];
       let result = calculate(input);
       expect(result).equal('in game');
+    });
+
+    it('should validate fail 1', () => {
+      let input = [
+        ['o', 'o', 'o'],
+        ['', 'x', ''],
+        ['', '', '']
+      ];
+      let result = calculate(input);
+      expect(result).equal('invalid input');
+    });
+
+    it('should validate fail 2', () => {
+      let input = [
+        ['o', 'o'],
+        ['', 'x', ''],
+        ['', '', '']
+      ];
+      let result = calculate(input);
+      expect(result).equal('invalid input');
     });
   });
 });
