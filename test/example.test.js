@@ -19,7 +19,7 @@ describe('example.js', () => {
       let input = [
         ['x', 'x', 'x'],
         ['o', 'o', 'x'],
-        ['x', 'x', 'o']
+        ['o', 'x', 'o']
       ];
       let result = calculate(input);
       expect(result).equal('x win');
@@ -178,29 +178,19 @@ describe('example.js', () => {
 
     it('should in game', () => {
       let input = [
+        ['', '', 'x'],
         ['', '', ''],
-        ['', '', ''],
-        ['', '', '']
+        ['o', '', '']
       ];
       let result = calculate(input);
       expect(result).equal('in game');
     });
 
-    it('should validate fail 1', () => {
+    it('should validate fail', () => {
       let input = [
         ['o', 'o', 'o'],
-        ['', 'x', ''],
-        ['', '', '']
-      ];
-      let result = calculate(input);
-      expect(result).equal('invalid input');
-    });
-
-    it('should validate fail 2', () => {
-      let input = [
-        ['o', 'o'],
-        ['', 'x', ''],
-        ['', '', '']
+        ['', '', ''],
+        ['x', 'x', 'x']
       ];
       let result = calculate(input);
       expect(result).equal('invalid input');

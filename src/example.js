@@ -4,13 +4,24 @@ export function calculate(input) {
 
   let result = check(input);
 
-  result = ((input[0][0] === input[1][1]) && (input[1][1] === input[2][2])) ? input[0][0] + ' win' : result;
-  result = ((input[0][2] === input[1][1]) && (input[1][1] === input[2][0])) ? input[0][2] + ' win' : result;
+  result = !((input[0][0] !== input[1][1]) || (input[1][1] !== input[2][2])) ? input[0][0] + ' win' : result;
+  result = !((input[0][2] !== input[1][1]) || (input[1][1] !== input[2][0])) ? input[0][2] + ' win' : result;
 
   input = transpose(input);
   result = check(input) ? check(input) : result;
 
+  result = validate(input) ? result : 'invalid input';
+
   return result ? result : 'Draw';
+}
+
+function validate(input) {
+  let player = { o: 0, x: 0 };
+  _.compact(_.flatten(input)).map((p) => {
+    p === 'o' ? player.o++ : player.x++;
+  });
+  // console.log(player, player.o - player.x);
+  return ((player.o - player.x) > 1 || (player.o - player.x) < -1) ? false : true;
 }
 
 function transpose(a) {
