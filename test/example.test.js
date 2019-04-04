@@ -57,7 +57,7 @@ describe('example.js', () => {
 
     it('should x win cell 2', () => {
       let input = [
-        ['x', 'x', 'o'],
+        ['o', 'x', 'o'],
         ['x', 'x', 'o'],
         ['o', 'x', 'x']
       ];
@@ -67,7 +67,7 @@ describe('example.js', () => {
 
     it('should x win cell 3', () => {
       let input = [
-        ['x', 'x', 'x'],
+        ['o', 'o', 'x'],
         ['x', 'o', 'x'],
         ['o', 'x', 'x']
       ];
