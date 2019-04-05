@@ -5,7 +5,7 @@ import { OX } from '../src/ox';
 
 describe('ox.js', () => {
   describe('alwaysReturn1()', () => {
-    it('Check O valid input', () => {
+    it('Check O invalid input', () => {
       const ox = new OX();
       let result = ox.playOX([
         ['O', 'O', 'O'],
@@ -15,7 +15,7 @@ describe('ox.js', () => {
       expect(result).equal('Invalid Input');
     });
 
-    it('Check X valid input', () => {
+    it('Check X invalid input', () => {
       const ox = new OX();
       let result = ox.playOX([
         ['X', 'X', 'X'],
@@ -233,7 +233,7 @@ describe('ox.js', () => {
       expect(result).equal('In Game');
     });
 
-    it('Test Winner > 1)', () => {
+    it('Winner more than 1)', () => {
       const ox = new OX();
       let result = ox.playOX([
         ['X', 'X', 'X'],
@@ -241,7 +241,7 @@ describe('ox.js', () => {
         [' ', ' ', ' '],
       ])
 
-      expect(result).equal('In Game');
+      expect(result).equal('Invalid Input');
     });
   });
 });
