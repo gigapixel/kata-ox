@@ -120,7 +120,7 @@ describe('example.js', () => {
     it('should return X WIN vertical 3', () => {
       const input = [
         ["X", "O", "O"],
-        ["O", "O", "X"]
+        ["O", "O", "X"],
         ["X", "X", "X"],
       ];
       let result = main(input);
@@ -151,7 +151,7 @@ describe('example.js', () => {
       const input = [
         ["X", "O", "X"],
         ["X", "X", "O"],
-        ["X", "O", "X"]
+        ["O", "O", "X"]
       ];
       let result = main(input);
       expect(result).equal('X WIN');
@@ -177,6 +177,26 @@ describe('example.js', () => {
       expect(result).equal('X WIN');
     });
 
+    it('should return Invalid Input', () => {
+      const input = [
+        ["O", "O", "X"],
+        ["O", "O", "X"],
+        ["O", "O", "X"]
+      ];
+      let result = main(input);
+      expect(result).equal('Invalid Input');
+    });
+
+
+    it('should return Invalid Input', () => {
+      const input = [
+        ["O", "O", "O"],
+        ["", "", ""],
+        ["", "", "X"]
+      ];
+      let result = main(input);
+      expect(result).equal('Invalid Input');
+    });
     // it('should return deals', () => {
     //   const input = [
     //     ["X", "O", "O"],

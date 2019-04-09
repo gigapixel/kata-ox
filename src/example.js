@@ -8,25 +8,42 @@ export function main(input) {
   if (!isValid) {
     return 'Invalid Input';
   }
-  checkData(input, 'Horizontal');
-  if (print === 'in game') {
-    checkData(dataVertical, 'Vertical');
-    print = ((input[0][0] === input[1][1] && input[2][2] === input[1][1]) && input[1][1] !== "")
-      || ((input[0][2] === input[1][1] && input[2][0] === input[1][1]) && input[1][1] !== "") ? `${input[1][1]} WIN` : 'in game'
-  }
-  return print;
-}
 
-function checkData(input, task) {
-  input.some((res, key) => {
-    if (task === 'Horizontal') {
-      res.forEach((value, keyin) => {
-        dataVertical[keyin].push(value);
-      })
-    }
-    return _.countBy(res, x => x === 'O').true === 3 ? print = 'O WIN' :
-      _.countBy(res, x => x === 'X').true === 3 ? print = 'X WIN' : false;
-  });
+  for(let i = 0; i < 3; i++ ){
+
+    // ver
+    const valV = check([
+      input[i][0],
+      input[i][1],
+      input[i][2]
+    ]);
+    if(valV.length === 1) return valV[0] + ' WIN'; 
+   
+    // ho
+    const valH = [
+      input[0][i],
+      input[1][i],
+      input[2][i]].filter(onlyUnique);
+    if(valH.length === 1) return valH[0] + ' WIN';
+    // console.log(i);
+  }
+
+
+  // ty 1
+  const valT1 =
+    [input[0][0],
+    input[1][1],
+    input[2][2]].filter(onlyUnique);
+  if(valT1.length === 1) return valT1[0] + ' WIN';
+
+
+  // ty 2
+  const valT2 = [input[2][0],
+    input[1][1],
+    input[0][2]].filter(onlyUnique);
+  if(valT2.length === 1) return valT2[0] + ' WIN';
+
+  return print;
 }
 
 function validateInput(input) {
@@ -34,29 +51,35 @@ function validateInput(input) {
   let oCount = 0;
   for (let i = 0; i <= 2; i++) {
     for (let j = 0; j <= 2; j++) {
-      if (input[i][j] === 'X') {
-        xCount++;
-      } else if (input[i][j] === 'O') {
-        oCount++;
-      }
+      xCount = (input[i][j] === 'X') ? xCount+1 : xCount;
+      oCount = (input[i][j] === 'O') ? oCount+1 : oCount;
     }
   }
-  let sumInput = 0;
-  if (xCount > oCount) {
-    sumInput = xCount - oCount;
-  } else if (oCount > xCount) {
-    sumInput = oCount - xCount;
-  }
-
-  if (sumInput > 1) {
-    return false;
-  }
-
-  return true;
+  let diff = xCount - oCount;
+  let sumInput = (diff > 0) ? xCount - oCount : oCount - xCount;
+  return (sumInput > 1) ? false : true;
 }
 
+function check(data) {
+  return data.filter(onlyUnique);
+  // const res = data.filter(onlyUnique);
+  // if(res.length === 1){
+  //   return res[0];
+  // } else {
+  //   return;
+  // }
+}
+
+function onlyUnique(value, index, self) { 
+  return self.indexOf(value) === index;
+}
+
+// usage example:
+var a = ['a', 1, 'a', 2, '1'];
+var unique = a.filter( onlyUnique ); 
+
 console.log(main([
-  ["X", "X", "X"],
-  ["X", "O", "O"],
-  ["O", "O", "X"]
+  ["X", "X", "O"],
+  ["O", "O", "O"],
+  ["X", "O", "X"]
 ]));
